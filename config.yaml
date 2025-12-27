@@ -1,0 +1,56 @@
+# Training Configuration
+train:
+  epochs: 100
+  batch_size: 8
+  learning_rate: 0.0001
+  weight_decay: 0.0001
+  num_workers: 4
+  save_interval: 10
+  validate_interval: 1
+
+# Model Configuration
+model:
+  architecture: "unet"  # Options: unet, resnet50_unet
+  input_channels: 1
+  output_channels: 1
+  base_filters: 64
+
+# Data Configuration
+data:
+  data_dir: "./data"
+  image_size: 256
+  normalize: true
+  augmentation:
+    enabled: true
+    random_rotation: 15
+    random_flip: true
+    random_brightness: 0.2
+    random_contrast: 0.2
+
+# Loss Configuration
+loss:
+  type: "combined"  # Options: bce, dice, combined
+  bce_weight: 0.5
+  dice_weight: 0.5
+
+# Optimizer Configuration
+optimizer:
+  type: "adam"  # Options: adam, sgd, adamw
+  momentum: 0.9  # For SGD
+  betas: [0.9, 0.999]  # For Adam
+
+# Learning Rate Scheduler
+scheduler:
+  type: "reduce_on_plateau"  # Options: reduce_on_plateau, cosine, step
+  patience: 10
+  factor: 0.5
+  min_lr: 0.000001
+
+# Paths
+paths:
+  checkpoint_dir: "./checkpoints"
+  results_dir: "./results"
+  log_dir: "./logs"
+
+# Device
+device: "cuda"  # Options: cuda, cpu
