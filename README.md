@@ -141,7 +141,7 @@ You can customize training parameters by modifying `config.yaml` or passing comm
 ### Sample Segmentation Results
 
 Example segmentation outputs can be found in the `results/` directory, showing:
-- Original CT slices
+- Original MR Slices
 - Ground truth segmentation masks
 - Model predictions
 - Overlayed visualizations
